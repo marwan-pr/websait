@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <link rel="icon" type="image/png" href="../img/them.jfif">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GALAXY ARTS</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <link rel="manifest" href="../manifest.json">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('../service-worker.js')
+          .then((registration) => {
+            console.log('تم التسجيل لـ Service Worker بنجاح:', registration);
+          })
+          .catch((error) => {
+            console.log('فشل التسجيل لـ Service Worker:', error);
+          });
+      });
+    }
+  </script>
+</head>
+<body>
+  <header class="header">
+    <img src="../img/them.jfif" class="logo">
+    <h1 class="title">GALAXY ARTS</h1>
+    <img src="../img/Hamburger_icon.svg.png" class="menu-btn" onclick="toggleMenu()">
+  </header>
+
+  <nav class="menu" id="menu">
+    <button onclick="loadPage('me.php')">الملف الشخصي</button>
+    <button onclick="window.location.href = ('group_chat.php')">الدردشات</button>
+    <button onclick="loadPage('display_files.php')">الملفات</button>
+    <button onclick="loadPage('upload_zip.php')">رفع الملفات</button>
+    <button id="installBtn" style="display:none;" onclick="add()">تثبيت للشاشة</button>
+  </nav>
+
+  <iframe src="me.php" frameborder="0" class="main-frame" id="main-frame"></iframe>
+
+  <script>
+    let deferredPrompt;
+    const installButton = document.getElementById('installBtn');
+
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+
+
+      deferredPrompt = e;
+
+      installButton.style.display = 'block';
+    });
+
+    function add() {
+
+      deferredPrompt.prompt();
+
+  
+      deferredPrompt.userChoice.then((choiceResult) => {
+        if (choiceResult.outcome === 'accepted') {
+          console.log('تم إضافة التطبيق إلى الشاشة الرئيسية');
+        } else {
+          console.log('تم رفض إضافة التطبيق');
+        }
+        deferredPrompt = null;
+        installButton.style.display = 'none';
+      });
+    }
+
+    window.onload = function () {
+      if (localStorage.getItem('pges') === 'true') {
+        var page = localStorage.getItem('page');
+        if (page) {
+          document.getElementById("main-frame").src = page;
+        }
+      }
+    };
+
+    function toggleMenu() {
+      document.getElementById("menu").classList.toggle("show");
+    }
+
+    function loadPage(page) {
+      document.getElementById("main-frame").src = page;
+      document.getElementById("menu").classList.remove("show");
+
+      localStorage.setItem('page', page);
+      localStorage.setItem('pges', 'true');
+    }
+  </script>
+
+</body>
+</html>

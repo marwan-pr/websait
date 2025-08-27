@@ -1,0 +1,67 @@
+.tit_u_s{
+    width: 100%;
+    border-bottom: 1px solid black;
+    margin-bottom: 0px;
+}
+
+.all_u_s{
+    text-align: center;
+}
+
+.box_u_s{
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-top: 1px;
+    background-color: gray;
+    border-top: 1px solid black;
+}
+
+.fail{
+    overflow-y: auto;
+    display: flex;
+}
+
+.f1{
+    padding-left: 10%;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    width: 75%;
+    padding-top: 5%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.f2{
+    text-align: center;
+    width: 25%;
+    border-left: 1px solid black;
+    margin-left: 1px;
+}
+
+.b_z{
+    background-color: white;
+    width: 80%;
+}
+
+.tex_f{
+    text-align: right;
+    resize: none;
+    width: 80%;
+    height: 50%;
+}
+
+.chat-image {
+  max-width: 50%;
+  margin-top: 8px;
+  border-radius: 8px;
+}
+
+.img_u{
+  margin-top: 2px;
+  border: 2px black;
+  border-style: ridge;
+  border-radius: 100%;
+  height: 70%;
+  width: 70%;
+}

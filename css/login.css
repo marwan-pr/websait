@@ -1,0 +1,106 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    direction: rtl;
+}
+
+.all {
+    text-align: center;
+    padding: 3%;
+    border: white ridge 2px;
+    width: 90%;
+    max-width: 500px;
+    margin: auto;
+    background-color: #ffffffbb;
+    border-radius: 25px;
+    min-height: 90vh;
+    box-sizing: border-box;
+    position: relative;
+    top: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.title {
+    font-size: 2em;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.inp {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.p, .b {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    border: white ridge 2px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+.b {
+    background-color: #000000cc;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.b:hover {
+    background-color: #333;
+}
+
+.instructions {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 10px;
+    color: azure;
+    text-align: right;
+    margin-top: 20px;
+}
+
+.instructions h2 {
+    margin-top: 0;
+}
+
+.remember {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.remember label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #333;
+}
+
+@media (max-width: 600px) {
+    .all {
+        width: 95%;
+        padding: 5%;
+        top: 2vh;
+    }
+
+    .title {
+        font-size: 1.6em;
+    }
+
+    .p, .b {
+        font-size: 0.95em;
+    }
+
+    .remember {
+        font-size: 0.85em;
+    }
+}
